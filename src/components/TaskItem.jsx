@@ -1,7 +1,7 @@
 import React from 'react'
 import {MdDeleteSweep} from 'react-icons/md'
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task,deleteTask }) => {
   return (
 <li className="items">
   <div className="checkbox-container">
@@ -9,7 +9,7 @@ const TaskItem = ({ task }) => {
   </div>
   <div className="items-text">
     <div>{task.taskName}</div>
-    <MdDeleteSweep className="delete-icon" />
+    <MdDeleteSweep className="delete-icon" onClick={() =>deleteTask(task.taskName)} />
   </div>
 </li>
 
