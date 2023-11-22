@@ -158,3 +158,7 @@ button:hover {
   background: #b1453d;
   transition: 0.3s;
 }
+.isChecked {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
