@@ -2,6 +2,8 @@ import './index.css';
 import TaskInput from './components/TaskInput'
 import { useState } from "react";
 import TaskItem from './components/TaskItem';
+import Stats from './components/Stats';
+
 import { FaThumbsUp } from 'react-icons/fa';
 function App() {
   const [toDoList, setTodoList] = useState([]);
@@ -44,7 +46,8 @@ function App() {
 
         </div>
       </div>
-    </div>
+      <Stats toDoList={toDoList} />
+          </div>
 
   );
 };

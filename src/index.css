@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Monoton:wght@200;300;400;500;600;700;800&display=swap');
 * {
-  margin: 0;
   padding: 0;
   border: none;
   outline: none;
@@ -16,6 +15,7 @@ body {
   padding: 1rem;
   margin: 3rem auto;
   border-radius: 5px;
+  position: relative; 
 }
 .container h1 {
   text-align: center;
@@ -92,7 +92,6 @@ button:hover {
   padding: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   color: rgb(186, 186, 186);
 }
 
@@ -131,7 +130,7 @@ button:hover {
 .icon {
   margin-top: 10px;
   font-size: 24px;
-  color: #5cb85c; /* You can adjust the color of the icon */
+  color: #3e3e5a; /* You can adjust the color of the icon */
 }
 
 @keyframes fadeIn {
@@ -153,6 +152,8 @@ button:hover {
   border-radius: 50%;
   padding: 5px;
   display: block;
+  justify-content: space-between;
+
 }
 .delete-icon:hover {
   background: #b1453d;
@@ -162,3 +163,16 @@ button:hover {
   text-decoration: line-through;
   opacity: 0.5;
 }
+.stats {
+  position: absolute;
+  margin : 3rem auto;
+  bottom: 10;
+  width: 100%;
+  padding: 10px;
+  background: #282851;
+}
+.notif {
+  text-align: center;
+  color: rgb(161, 160, 160);
+}
+
