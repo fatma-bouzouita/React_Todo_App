@@ -5,7 +5,7 @@ export const Stats = ({ toDoList }) => {
     return (
         <div className='stats'>
             <p className='notif'> 
-{ cnt===0 ? 'You got everything ' : `You have ${cnt} tasks on your list`}
+{ cnt===0 ? '' : `You have ${cnt} tasks on your list`}
             </p>
             </div>
     );

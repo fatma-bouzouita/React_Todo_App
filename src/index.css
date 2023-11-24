@@ -20,13 +20,12 @@ body {
 .container h1 {
   text-align: center;
   font-family: 'Monoton';
-  color: rgb(161, 160, 160);
+  color: rgb(255, 255, 255);
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 400;
   word-spacing: 5px;
   letter-spacing: 5px;
-  padding: 2.4rem 0;
 }
 
 .inputField {
@@ -124,13 +123,13 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 20px;
-  animation: fadeIn 0.5s ease-in-out; /* You can create a fadeIn animation */
+  animation: fadeIn 0.5s ease-in-out; 
 }
 
 .icon {
   margin-top: 10px;
   font-size: 24px;
-  color: #3e3e5a; /* You can adjust the color of the icon */
+  color: #3e3e5a; 
 }
 
 @keyframes fadeIn {
@@ -164,8 +163,7 @@ button:hover {
   opacity: 0.5;
 }
 .stats {
-  position: absolute;
-  margin : 3rem auto;
+  margin : 1rem auto;
   bottom: 10;
   width: 100%;
   padding: 10px;
@@ -176,3 +174,41 @@ button:hover {
   color: rgb(161, 160, 160);
 }
 
+.filter-buttons {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-buttons button {
+  background: #3e3e5a;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  transform: none;
+}
+
+.filter-buttons button:hover {
+  background: #5a5a7a;
+}
+
+.clear-completed-button {
+  background-color: #ff4d4d; 
+  color: #fff;
+  padding: 5px 5px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left:210px;
+  margin-top:10px;
+}
+
+.clear-completed-button:hover {
+  background-color: #e60000;
+  transform: none;
+}

@@ -7,6 +7,7 @@ import Stats from './components/Stats';
 import { FaThumbsUp } from 'react-icons/fa';
 function App() {
   const [toDoList, setTodoList] = useState([]);
+  const [filter, setFilter] = useState('all'); // 'all', 'completed', 'unchecked'
   const addTask = (taskName) => {
     const newTask = { taskName, checked: false };
     setTodoList([...toDoList, newTask])
@@ -23,15 +24,39 @@ function App() {
     const updatedTask = toDoList.find((task) => task.taskName === taskName);
     console.log(updatedTask ? updatedTask.checked : null);
   }
+
+  const filteredTasks = toDoList.filter((task) => {
+    if (filter === 'checked') {
+      console.log('Checking filter: ', task.checked);
+      return task.checked;
+    }
+    if (filter === 'unchecked') {
+      console.log('Unchecked filter: ', !task.checked);
+      return !task.checked;
+    }
+    console.log('All filter');
+    return true;
+  });
+  const clearCompleted = () => {
+    const updatedList = toDoList.filter((task) => !task.checked);
+    setTodoList(updatedList);
+  };
   return (
 
     <div className="container">
       <h1> To do List</h1>
+      <div className="filter-buttons">
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('checked')}>Completed</button>
+        <button onClick={() => setFilter('unchecked')}>Incompleted</button>
+      </div>
       <TaskInput addTask={addTask} />
+      <button className="clear-completed-button" onClick={clearCompleted}>Clear Completed</button>
       <div className="toDoList">
+
         <span> To DO  </span>
         <ul className="list-items">
-          {toDoList.map((task, key) => (
+          {filteredTasks.map((task, key) => (
             <TaskItem task={task} key={key} deleteTask={deleteTask}
               toggleCheck={toggleCheck} />
           ))}
@@ -46,8 +71,9 @@ function App() {
 
         </div>
       </div>
+    
       <Stats toDoList={toDoList} />
-          </div>
+    </div>
 
   );
 };

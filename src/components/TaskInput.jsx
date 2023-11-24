@@ -14,6 +14,8 @@ const TaskInput = ({ addTask }) => {
         addTask(task);
         setTask('');
     }
+
+    
     return (
         <form className="inputField" onSubmit={handleAddTask}>
             < input type="text" value={task} placeholder="Add a Task" onChange={handleInputValue} />
