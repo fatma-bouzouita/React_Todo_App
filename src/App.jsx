@@ -51,7 +51,10 @@ function App() {
         <button onClick={() => setFilter('unchecked')}>Incompleted</button>
       </div>
       <TaskInput addTask={addTask} />
-      <button className="clear-completed-button" onClick={clearCompleted}>Clear Completed</button>
+      {(filter === 'checked' || filter === 'all') && (
+    <button className="clear-completed-button" onClick={clearCompleted}>
+      Clear Completed
+    </button> )}
       <div className="toDoList">
 
         <span> To DO  </span>
