@@ -91,8 +91,11 @@ function App() {
         <ul className="list-items">
       
           {filteredTasks.map((task, key) => (
-            <><TaskItem task={task} key={key} deleteTask={deleteTask}
-              toggleCheck={toggleCheck} /><MdUpdate className="update-icon" onClick={() => openUpdateModal(task)} /></>
+            <div class="maj">
+            <TaskItem task={task} key={key} deleteTask={deleteTask}
+              toggleCheck={toggleCheck} />
+              <MdUpdate className="update-icon" onClick={() => openUpdateModal(task)} />
+              </div>
 
           
               

@@ -142,6 +142,21 @@ button:hover {
     transform: translateY(0);
   }
 }
+.update-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 27px !important;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px;
+  display: block;
+  justify-content: space-between;
+}
+
+.update-icon:hover {
+  background:green;  /* Change this to your desired hover color */
+  transition: 0.3s;
+}
 
 .delete-icon {
   width: 40px;
@@ -158,6 +173,8 @@ button:hover {
   background: #b1453d;
   transition: 0.3s;
 }
+.maj{color: white;
+display: flex;}
 .isChecked {
   text-decoration: line-through;
   opacity: 0.5;
