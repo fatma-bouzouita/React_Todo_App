@@ -270,6 +270,9 @@ input[type="checkbox"] {
   margin-bottom: 10px;
   color:#282851;
 }
+.prop{
+  display: flex;
+}
 
 .update-task-content input {
   width: 100%;

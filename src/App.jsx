@@ -6,32 +6,36 @@ import Stats from './components/Stats';
 import { FaThumbsUp } from 'react-icons/fa';
 import { MdEdit } from 'react-icons/md';
 
-function App() {
+function App(task) {
   const [toDoList, setTodoList] = useState([]);
   const [filter, setFilter] = useState('all'); // 'all', 'completed', 'unchecked'
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [updatedTaskName, setUpdatedTaskName] = useState('');
+  const [updatedTaskChecked, setUpdatedTaskChecked] = useState(task?.checked || false);
 
   const openUpdateModal = (task) => {
     setSelectedTask(task);
     setUpdatedTaskName(task.taskName);
+    setUpdatedTaskChecked(task.checked);
     setShowUpdateModal(true);
   };
 
   const closeUpdateModal = () => {
     setSelectedTask(null);
     setUpdatedTaskName('');
+    setUpdatedTaskChecked(false);
     setShowUpdateModal(false);
   };
-
   const updateTask = () => {
     if (updatedTaskName.trim() !== '') {
       setTodoList((prevTodoList) =>
         prevTodoList.map((task) =>
-          task.taskName === selectedTask.taskName ? { ...task, taskName: updatedTaskName } : task
+          task.taskName === selectedTask.taskName ? { ...task, taskName: updatedTaskName,checked: updatedTaskChecked  } : task
         )
+        
       );
+
       closeUpdateModal();
     }
   };
@@ -82,11 +86,20 @@ function App() {
           <div className="update-task-modal">
             <div className="update-task-content">
               <h2>Update Task</h2>
+              <div className='prop'>
               <input
                 type="text"
                 value={updatedTaskName}
                 onChange={(e) => setUpdatedTaskName(e.target.value)}
               />
+            <label>
+                <input
+                  type="checkbox"
+                  checked={updatedTaskChecked}
+                  onChange={() => setUpdatedTaskChecked(!updatedTaskChecked)}
+                />
+              </label>
+              </div> 
               <button onClick={updateTask}>Update</button>
               <button onClick={closeUpdateModal}>Cancel</button>
             </div>
