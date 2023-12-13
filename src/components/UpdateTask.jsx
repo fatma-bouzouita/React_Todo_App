@@ -38,7 +38,7 @@ export default function UpdateTask({ isOpen, onClose, task, updateTask, deleteTa
             />
             Completed
           </label>
-          <button onClick={handleUpdate}>Update Task</button>
+          <button className='filter-buttons' onClick={handleUpdate}>Update Task</button>
         </div>
       </div>
     )
