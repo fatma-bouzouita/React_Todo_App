@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "homepage" : "https://fatma-bouzouita.github.io/https://github.com/fatma-bouzouita/React_Todo_App.git"
+    "homepage" : "https://fatma-bouzouita.github.io/React_Todo_App"
   },
   "eslintConfig": {
     "extends": [
