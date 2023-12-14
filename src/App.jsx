@@ -8,37 +8,26 @@ import { MdEdit } from 'react-icons/md';
 
 function App(task) {
   const [toDoList, setTodoList] = useState([]);
-  const [filter, setFilter] = useState('all'); // 'all', 'completed', 'unchecked'
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [updatedTaskName, setUpdatedTaskName] = useState('');
   const [updatedTaskChecked, setUpdatedTaskChecked] = useState(task?.checked || false);
-
-  const openUpdateModal = (task) => {
-    setSelectedTask(task);
-    setUpdatedTaskName(task.taskName);
-    setUpdatedTaskChecked(task.checked);
-    setShowUpdateModal(true);
-  };
-
+  const [filter, setFilter] = useState('all'); 
   const closeUpdateModal = () => {
-    setSelectedTask(null);
-    setUpdatedTaskName('');
-    setUpdatedTaskChecked(false);
     setShowUpdateModal(false);
   };
-  const updateTask = () => {
-    if (updatedTaskName.trim() !== '') {
-      setTodoList((prevTodoList) =>
-        prevTodoList.map((task) =>
-          task.taskName === selectedTask.taskName ? { ...task, taskName: updatedTaskName,checked: updatedTaskChecked  } : task
-        )
-        
-      );
+const updateTask = (updatedTask) => {
+  setTodoList((prevTodoList) =>
+    prevTodoList.map((task) =>
+      task.taskName === updatedTask.taskName
+        ? { ...task, taskName: updatedTask.taskName, checked: updatedTask.checked }
+        : task
+    )
+  );
+  closeUpdateModal();
+};
 
-      closeUpdateModal();
-    }
-  };
+
 
   const addTask = (taskName) => {
     const newTask = { taskName, checked: false };
@@ -81,31 +70,6 @@ function App(task) {
         <button onClick={() => setFilter('unchecked')}>Incomplete</button>
       </div>
       <TaskInput addTask={addTask} />
-      <div>
-        {showUpdateModal && (
-          <div className="update-task-modal">
-            <div className="update-task-content">
-              <h2>Update Task</h2>
-              <div className='prop'>
-              <input
-                type="text"
-                value={updatedTaskName}
-                onChange={(e) => setUpdatedTaskName(e.target.value)}
-              />
-            <label>
-                <input
-                  type="checkbox"
-                  checked={updatedTaskChecked}
-                  onChange={() => setUpdatedTaskChecked(!updatedTaskChecked)}
-                />
-              </label>
-              </div> 
-              <button onClick={updateTask}>Update</button>
-              <button onClick={closeUpdateModal}>Cancel</button>
-            </div>
-          </div>
-        )}
-      </div>
       {filter === 'checked' || filter === 'all' ? (
         <button className="clear-completed-button" onClick={clearCompleted}>
           Clear Completed
@@ -116,8 +80,7 @@ function App(task) {
         <ul className="list-items">
           {filteredTasks.map((task, key) => (
             <div className="maj" key={key}>
-              <TaskItem task={task} deleteTask={deleteTask} toggleCheck={toggleCheck} />
-              <MdEdit className="update-icon" onClick={() => openUpdateModal(task)} />
+              <TaskItem task={task} deleteTask={deleteTask}  updateTask={updateTask} toggleCheck={toggleCheck} />
             </div>
           ))}
         </ul>
