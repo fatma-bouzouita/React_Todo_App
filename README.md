@@ -39,15 +39,17 @@ https://fatma-bouzouita.github.io/React_Todo_App/
 
     ```bash
     npm start
+    
     ```
 
-    The app will be accessible at [http://localhost:3000](http://localhost:3000).
+The app will be accessible at [http://localhost:3000](http://localhost:3000).
 
 2. Start adding, updating, and deleting tasks.
 
 ## Conclusion
 
-Organizing your daily activities is crucial for enhancing productivity and effective time management. The React Todo App serves as a helpful tool to manage your tasks seamlessly. By using this app, you can streamline your workflow, prioritize tasks efficiently, and stay focused on your goals.
+Organizing your daily activities is crucial for enhancing productivity and effective time management.
+The React Todo App serves as a helpful tool to manage your tasks seamlessly. By using this app, you can streamline your workflow, prioritize tasks efficiently, and stay focused on your goals.
 
 We hope this app contributes to a more organized and productive daily routine.
 If you have any feedback, issues, or suggestions, please feel free to [open an issue](https://github.com/your-username/react-todo-app/issues).
