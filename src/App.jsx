@@ -4,28 +4,23 @@ import TaskInput from './components/TaskInput';
 import TaskItem from './components/TaskItem';
 import Stats from './components/Stats';
 import { FaThumbsUp } from 'react-icons/fa';
-import { MdEdit } from 'react-icons/md';
-
 function App(task) {
   const [toDoList, setTodoList] = useState([]);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [selectedTask, setSelectedTask] = useState(null);
-  const [updatedTaskName, setUpdatedTaskName] = useState('');
-  const [updatedTaskChecked, setUpdatedTaskChecked] = useState(task?.checked || false);
-  const [filter, setFilter] = useState('all'); 
+  const [filter, setFilter] = useState('all');
   const closeUpdateModal = () => {
     setShowUpdateModal(false);
   };
-const updateTask = (updatedTask) => {
-  setTodoList((prevTodoList) =>
-    prevTodoList.map((task) =>
-      task.taskName === updatedTask.taskName
-        ? { ...task, taskName: updatedTask.taskName, checked: updatedTask.checked }
-        : task
-    )
-  );
-  closeUpdateModal();
-};
+  const updateTask = (updatedTask) => {
+    setTodoList((prevTodoList) =>
+      prevTodoList.map((task) =>
+        task.taskName === updatedTask.taskName
+          ? { ...task, taskName: updatedTask.taskName, checked: updatedTask.checked }
+          : task
+      )
+    );
+    closeUpdateModal();
+  };
 
 
 
@@ -80,7 +75,7 @@ const updateTask = (updatedTask) => {
         <ul className="list-items">
           {filteredTasks.map((task, key) => (
             <div className="maj" key={key}>
-              <TaskItem task={task} deleteTask={deleteTask}  updateTask={updateTask} toggleCheck={toggleCheck} />
+              <TaskItem task={task} deleteTask={deleteTask} updateTask={updateTask} toggleCheck={toggleCheck} />
             </div>
           ))}
         </ul>

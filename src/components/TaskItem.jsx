@@ -2,12 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import { MdDeleteSweep } from 'react-icons/md'
 import { MdEdit } from 'react-icons/md';
-
-
 const TaskItem = ({ task, deleteTask, updateTask, toggleCheck, }) => {
   console.log('TaskItem received task:', task);
   const [localTask, setLocalTask] = useState(task);
-  const [toDoList, setTodoList] = useState([]);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [updatedTaskName, setUpdatedTaskName] = useState('');
@@ -72,7 +69,6 @@ return (
 
     </div>
   </li>
-
 )
         }
 
