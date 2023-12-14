@@ -14,22 +14,12 @@ https://fatma-bouzouita.github.io/React_Todo_App/
 
 ## Getting Started
 
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/react-todo-app.git
-
-   ## Getting Started
-
 ### Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/react-todo-app.git
+    git clone https://github.com/fatma-bouzouita/React_Todo_App.git
     ```
 
 2. Navigate to the project directory:
