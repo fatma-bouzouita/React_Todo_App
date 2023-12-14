@@ -52,6 +52,7 @@ The React Todo App serves as a helpful tool to manage your tasks seamlessly. By 
 
 We hope this app contributes to a more organized and productive daily routine.
 If you have any feedback, issues, or suggestions, please feel free to [open an issue](https://github.com/fatma-bouzouita/React_Todo_App/issues).
+
 Happy organizing!
 
 Thank you for using the React Todo App!
