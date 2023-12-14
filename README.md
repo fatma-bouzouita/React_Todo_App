@@ -1,15 +1,67 @@
-# Getting Started with Create React App
+# React Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple Todo App built with React. It allows users to add, delete, and update tasks, as well as filter tasks based on their completion status.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add new tasks to the todo list.
+- Mark tasks as completed or incomplete.
+- Delete tasks from the todo list.
+- Update tasks.
 
-### `npm start`
+## Demo
+https://fatma-bouzouita.github.io/React_Todo_App/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/react-todo-app.git
+
+   ## Getting Started
+
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/your-username/react-todo-app.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd react-todo-app
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+### Usage
+ Run the development server:
+
+    ```bash
+    npm start
+    ```
+
+    The app will be accessible at [http://localhost:3000](http://localhost:3000).
+
+2. Start adding, updating, and deleting tasks.
+
+## Conclusion
+
+Organizing your daily activities is crucial for enhancing productivity and effective time management. The React Todo App serves as a helpful tool to manage your tasks seamlessly. By using this app, you can streamline your workflow, prioritize tasks efficiently, and stay focused on your goals.
+
+We hope this app contributes to a more organized and productive daily routine.
+If you have any feedback, issues, or suggestions, please feel free to [open an issue](https://github.com/your-username/react-todo-app/issues).
+Happy organizing!
+
+Thank you for using the React Todo App!
+
