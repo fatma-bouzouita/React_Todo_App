@@ -1,37 +1,53 @@
 import React, { useState } from 'react';
 import './index.css';
 import TaskInput from './components/TaskInput';
-import TaskItem from './components/TaskItem';
 import Stats from './components/Stats';
 import { FaThumbsUp } from 'react-icons/fa';
-function App(task) {
+import { MdEdit, MdDeleteSweep } from 'react-icons/md';
+
+function App() {
   const [toDoList, setTodoList] = useState([]);
+  const [filter, setFilter] = useState('all'); // 'all', 'completed', 'unchecked'
   const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [filter, setFilter] = useState('all');
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [updatedTaskName, setUpdatedTaskName] = useState('');
+  const [updatedTaskChecked, setUpdatedTaskChecked] = useState(false);
+
+  const openUpdateModal = (task) => {
+    setSelectedTask(task);
+    setUpdatedTaskName(task.taskName);
+    setUpdatedTaskChecked(task.checked);
+    setShowUpdateModal(true);
+  };
+
   const closeUpdateModal = () => {
+    setSelectedTask(null);
+    setUpdatedTaskName('');
+    setUpdatedTaskChecked(false);
     setShowUpdateModal(false);
   };
-  const updateTask = (updatedTask) => {
-    setTodoList((prevTodoList) =>
-      prevTodoList.map((task) =>
-        task.taskName === updatedTask.taskName
-          ? { ...task, taskName: updatedTask.taskName, checked: updatedTask.checked }
-          : task
-      )
-    );
-    closeUpdateModal();
+
+  const updateTask = () => {
+    if (updatedTaskName.trim() !== '' && selectedTask) {
+      setTodoList((prevTodoList) =>
+        prevTodoList.map((task) =>
+          task.taskName === selectedTask.taskName
+            ? { ...task, taskName: updatedTaskName, checked: updatedTaskChecked }
+            : task
+        )
+      );
+      closeUpdateModal();
+    }
   };
 
-
+  const deleteTask = (deleteTaskName) => {
+    setTodoList((prevTodoList) => prevTodoList.filter((task) => task.taskName !== deleteTaskName));
+  };
 
   const addTask = (taskName) => {
     const newTask = { taskName, checked: false };
     setTodoList([...toDoList, newTask]);
   };
-
-  function deleteTask(deleteTaskName) {
-    setTodoList(toDoList.filter((task) => task.taskName !== deleteTaskName));
-  }
 
   function toggleCheck(taskName) {
     setTodoList((prevTodoList) =>
@@ -65,6 +81,31 @@ function App(task) {
         <button onClick={() => setFilter('unchecked')}>Incomplete</button>
       </div>
       <TaskInput addTask={addTask} />
+      <div>
+        {showUpdateModal && (
+          <div className="update-task-modal">
+            <div className="update-task-content">
+              <h2>Update Task</h2>
+              <div className="prop">
+                <input
+                  type="text"
+                  value={updatedTaskName}
+                  onChange={(e) => setUpdatedTaskName(e.target.value)}
+                />
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={updatedTaskChecked}
+                    onChange={() => setUpdatedTaskChecked(!updatedTaskChecked)}
+                  />
+                </label>
+              </div>
+              <button onClick={updateTask}>Update</button>
+              <button onClick={closeUpdateModal}>Cancel</button>
+            </div>
+          </div>
+        )}
+      </div>
       {filter === 'checked' || filter === 'all' ? (
         <button className="clear-completed-button" onClick={clearCompleted}>
           Clear Completed
@@ -75,7 +116,16 @@ function App(task) {
         <ul className="list-items">
           {filteredTasks.map((task, key) => (
             <div className="maj" key={key}>
-              <TaskItem task={task} deleteTask={deleteTask} updateTask={updateTask} toggleCheck={toggleCheck} />
+              <li className="items">
+                <div className="checkbox-container">
+                  <input type="checkbox" checked={task.checked} onChange={() => toggleCheck(task.taskName)} />
+                </div>
+                <div className="items-text">
+                  <p className={task.checked ? 'isChecked' : ''}>{task.taskName} </p>
+                  <MdEdit className="update-icon" onClick={() => openUpdateModal(task)} />
+                  <MdDeleteSweep className="delete-icon" onClick={() => deleteTask(task.taskName)} />
+                </div>
+              </li>
             </div>
           ))}
         </ul>
