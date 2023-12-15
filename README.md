@@ -48,12 +48,10 @@ The app will be accessible at [http://localhost:3000](http://localhost:3000).
 ## Conclusion
 
 Organizing your daily activities is crucial for enhancing productivity and effective time management.
-The React Todo App serves as a helpful tool to manage your tasks seamlessly. By using this app, you can streamline your workflow, prioritize tasks efficiently, and stay focused on your goals.
+The React Todo App serves as a helpful tool to manage your tasks seamlessly. This app allows you to streamline your workflow, prioritize tasks efficiently, and stay focused on your goals.
 
 We hope this app contributes to a more organized and productive daily routine.
 If you have any feedback, issues, or suggestions, please feel free to [open an issue](https://github.com/fatma-bouzouita/React_Todo_App/issues).
 
 Happy organizing!
-
-Thank you for using the React Todo App!
 
